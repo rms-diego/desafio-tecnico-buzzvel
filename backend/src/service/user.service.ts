@@ -20,7 +20,7 @@ export class UserService {
   static async findById(userId: string) {
     const userFound = await UserModel.findById(userId);
 
-    if (!userFound) throw new Exception("User does not exists", 400);
+    if (!userFound) throw new Exception("User does not exists", 404);
 
     return userFound;
   }
