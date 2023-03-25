@@ -16,4 +16,12 @@ export class UserService {
 
     return userCreated;
   }
+
+  static async findById(userId: string) {
+    const userFound = await UserModel.findById(userId);
+
+    if (!userFound) throw new Exception("User does not exists", 400);
+
+    return userFound;
+  }
 }
