@@ -8,7 +8,7 @@ import { errorMiddleware } from "../utils/error-middleware";
 //routes
 import { userRoutes } from "../routes/user.routes";
 
-const app = fastify();
+const app = fastify({ logger: true });
 
 app.setErrorHandler(errorMiddleware);
 
