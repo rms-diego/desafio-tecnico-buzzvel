@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 
-import { createUserBodySchema, findByIdUserParamsSchema } from "../@types";
+import { createUserBodySchema, findByUserNameParamsSchema } from "../@types";
 
 import { UserService } from "../service/user.service";
 
@@ -15,10 +15,10 @@ export class UserController {
     return response.status(204).send();
   }
 
-  static async findById(request: FastifyRequest, response: FastifyReply) {
-    const { userId } = findByIdUserParamsSchema.parse(request.params);
+  static async findByName(request: FastifyRequest, response: FastifyReply) {
+    const { name } = findByUserNameParamsSchema.parse(request.params);
 
-    const userFound = await UserService.findById(userId);
+    const userFound = await UserService.findByName(name);
 
     return response.status(200).send({ user: userFound });
   }

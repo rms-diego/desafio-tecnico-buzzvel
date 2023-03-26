@@ -9,7 +9,7 @@ export const createUserBodySchema = zod.object({
 
 export type createUserDTO = zod.infer<typeof createUserBodySchema>;
 
-// find by id user types
-export const findByIdUserParamsSchema = zod.object({
-  userId: zod.string().uuid(),
+// find by name types params
+export const findByUserNameParamsSchema = zod.object({
+  name: zod.string().uuid(),
 });

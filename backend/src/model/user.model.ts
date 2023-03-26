@@ -16,8 +16,8 @@ export class UserModel {
     return userFound;
   }
 
-  static async findById(userId: string) {
-    const userFound = await prisma.user.findFirst({ where: { id: userId } });
+  static async findByName(name: string) {
+    const userFound = await prisma.user.findFirst({ where: { name } });
 
     return userFound;
   }
