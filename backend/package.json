@@ -4,7 +4,10 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "build": "tsc",
+    "start": "prisma migrate deploy && node build/server.js",
+    "dev": "tsx watch src/server.ts",
+    "db:up": "prisma migrate dev"
   },
   "keywords": [],
   "author": "",
