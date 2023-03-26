@@ -1,0 +1,11 @@
+node_modules
+
+# Database
+prisma/*.db*
+
+
+# Variables environment examples
+.env.example
+
+# Git
+.gitignore
