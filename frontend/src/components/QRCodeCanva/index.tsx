@@ -1,5 +1,14 @@
 import { QRCodeCanvas } from "qrcode.react";
 
-export function QRCodeCanva() {
-  return <QRCodeCanvas value={import.meta.env.BASE_URL} size={250} />;
+interface QRCodeCanvaProps {
+  username: string;
+}
+
+export function QRCodeCanva({ username }: QRCodeCanvaProps) {
+  return (
+    <QRCodeCanvas
+      value={`${import.meta.env.BASE_URL}/profile/${username}`}
+      size={250}
+    />
+  );
 }

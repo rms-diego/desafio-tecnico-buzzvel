@@ -41,7 +41,7 @@ export function QrCode() {
       <h1>{userData?.name}</h1>
       <h2>Scan me</h2>
 
-      <QRCodeCanva />
+      <QRCodeCanva username={username!} />
     </div>
   );
 }
