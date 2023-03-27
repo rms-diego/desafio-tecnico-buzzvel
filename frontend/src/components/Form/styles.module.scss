@@ -8,8 +8,8 @@
 }
 
 .formContainer {
-  width: 50vw;
-  height: 50vh;
+  min-width: 50vw;
+  padding: 1rem 0;
 
   border: 1px solid black;
   border-radius: 8px;
