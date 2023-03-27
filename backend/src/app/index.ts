@@ -8,11 +8,12 @@ import { errorMiddleware } from "../utils/error-middleware";
 //routes
 import { userRoutes } from "../routes/user.routes";
 
-const app = fastify({ logger: true });
+const app = fastify({ logger: true, trustProxy: true });
 
 app.setErrorHandler(errorMiddleware);
 
 app.register(cors);
+
 app.register(userRoutes, {
   prefix: "user",
 });

@@ -5,7 +5,7 @@ interface QRCodeCanvaProps {
 }
 
 export function QRCodeCanva({ username }: QRCodeCanvaProps) {
-  const redirectUrl = `${import.meta.env.VITE_APP_URL}profile/${username}`;
+  const redirectUrl = `${import.meta.env.VITE_APP_URL}/profile/${username}`;
 
   return <QRCodeSVG value={redirectUrl} href={redirectUrl} size={250} />;
 }
