@@ -3,6 +3,8 @@ node_modules
 # Database
 prisma/*.db*
 
+# build
+build
 
 # Variables environment examples
 .env.example
