@@ -1,14 +1,11 @@
-import { QRCodeCanvas } from "qrcode.react";
+import { QRCodeSVG } from "qrcode.react";
 
 interface QRCodeCanvaProps {
   username: string;
 }
 
 export function QRCodeCanva({ username }: QRCodeCanvaProps) {
-  return (
-    <QRCodeCanvas
-      value={`${import.meta.env.BASE_URL}/profile/${username}`}
-      size={250}
-    />
-  );
+  const redirectUrl = `${import.meta.env.VITE_APP_URL}profile/${username}`;
+
+  return <QRCodeSVG value={redirectUrl} href={redirectUrl} size={250} />;
 }
