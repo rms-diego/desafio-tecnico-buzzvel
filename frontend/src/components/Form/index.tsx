@@ -46,12 +46,8 @@ export function Form() {
     const userAlreadyExists = await createProfile(bodyPayload);
 
     if (userAlreadyExists) {
-      setName("");
-      setLastName("");
-      setGithubUrl("");
-      setLinkedinUrl("");
-
-      return alert(userAlreadyExists);
+      alert(userAlreadyExists);
+      return navigate(`/${name}-${lastName}`);
     }
 
     return navigate(`/${name}-${lastName}`);
