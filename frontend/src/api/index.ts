@@ -28,7 +28,10 @@ export const createProfile = async ({
 };
 
 export const findUserByName = async (username: string) => {
-  const { data } = await apiClient.get(`/user/findByName/${username}`);
-
-  return data.user as UserDataType;
+  try {
+    const { data } = await apiClient.get(`/user/findByName/${username}`);
+    return data.user as UserDataType;
+  } catch {
+    return;
+  }
 };
