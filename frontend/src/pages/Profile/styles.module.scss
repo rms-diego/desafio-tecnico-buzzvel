@@ -1,0 +1,28 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentContainer {
+  width: 50vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  .buttonContainer {
+    display: flex;
+    gap: 3rem;
+
+    button {
+      padding: 0.8rem;
+    }
+  }
+}
