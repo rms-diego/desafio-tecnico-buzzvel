@@ -11,5 +11,5 @@ export type createUserDTO = zod.infer<typeof createUserBodySchema>;
 
 // find by name types params
 export const findByUserNameParamsSchema = zod.object({
-  name: zod.string().uuid(),
+  name: zod.string(),
 });
