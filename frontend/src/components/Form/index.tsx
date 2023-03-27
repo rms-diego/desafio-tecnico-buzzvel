@@ -3,16 +3,25 @@ import { Input } from "../Input";
 import { createProfile } from "../../api";
 
 import styles from "./styles.module.scss";
+import { useNavigate } from "react-router-dom";
 
 export function Form() {
   const [name, setName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
   const [linkedinUrl, setLinkedinUrl] = useState<string>("");
   const [githubUrl, setGithubUrl] = useState<string>("");
   const [isDisableButton, setIsDisableButton] = useState<boolean>(true);
 
+  const navigate = useNavigate();
+
   const handleInputNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setName(value);
+    setName(value.trim());
+  };
+
+  const handleInputLastNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setLastName(value.trim());
   };
 
   const handleInputLinkedinUrl = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +38,7 @@ export function Form() {
     event.preventDefault();
 
     const bodyPayload = {
-      name,
+      name: `${name} ${lastName}`,
       linkedinUrl,
       githubUrl,
     };
@@ -38,15 +47,14 @@ export function Form() {
 
     if (userAlreadyExists) {
       setName("");
+      setLastName("");
       setGithubUrl("");
       setLinkedinUrl("");
 
-      alert(userAlreadyExists);
+      return alert(userAlreadyExists);
     }
 
-    setName("");
-    setGithubUrl("");
-    setLinkedinUrl("");
+    return navigate(`/${name}-${lastName}`);
   };
 
   useEffect(() => {
@@ -65,18 +73,28 @@ export function Form() {
             label="Name"
             value={name}
             handleChange={handleInputNameChange}
+            placeholder="John"
+          />
+
+          <Input
+            label="Last Name"
+            value={lastName}
+            handleChange={handleInputLastNameChange}
+            placeholder="Doe"
           />
 
           <Input
             label="Linkedin URL"
             value={linkedinUrl}
             handleChange={handleInputLinkedinUrl}
+            placeholder="ex: https://linkedin.com/in/john-doe"
           />
 
           <Input
             label="Github URL"
             value={githubUrl}
             handleChange={handleInputGithubUrl}
+            placeholder="ex: https://github.com/john-doe"
           />
         </div>
 
