@@ -12,7 +12,7 @@
 <h3>Back-End</h3>
 
   <div>
-    <img src="https://skillicons.dev/icons?i=ts,nodejs,prisma" />
+    <img src="https://skillicons.dev/icons?i=ts,nodejs,prisma,sqlite" />
   </div>
 
 </details>
@@ -61,7 +61,15 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
   git clone https://github.com/rms-diego/desafio-tecnico-buzzvel.git && cd desafio-tecnico-buzzvel
 ```
 
-**Docker OBS: CERTIFIQUE QUE AS VARIÁVEIS DE AMBIENTE FORAM CRIADAS ANTES DA CRIAÇÃO DA IMAGEM CONFORME O ARQUIVO DE EXEMPLO**
+**Rodando os testes com o NPM OBS: CERTIFIQUE QUE AS VARIÁVEIS DE AMBIENTE FORAM CRIADAS ANTES DA CRIAÇÃO DA IMAGEM CONFORME O ARQUIVO DE EXEMPLO**
+
+Caso esteja usando o plugin do docker compose
+
+```shell
+  npm run test
+```
+
+**Rodando localmente com Docker OBS: CERTIFIQUE QUE AS VARIÁVEIS DE AMBIENTE FORAM CRIADAS ANTES DA CRIAÇÃO DA IMAGEM CONFORME O ARQUIVO DE EXEMPLO**
 
 Caso esteja usando o plugin do docker compose
 
