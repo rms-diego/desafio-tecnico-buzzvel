@@ -17,8 +17,17 @@ export class UserController {
 
   static async findByName(request: FastifyRequest, response: FastifyReply) {
     const { name } = findByUserNameParamsSchema.parse(request.params);
+    let formateName = "";
 
-    const userFound = await UserService.findByName(name);
+    if (name.includes("-")) {
+      const [firstName, lastName] = name.split("-");
+
+      formateName = `${firstName} ${lastName}`;
+    }
+
+    const userFound = await UserService.findByName(
+      formateName ? formateName : name
+    );
 
     return response.status(200).send({ user: userFound });
   }
