@@ -23,6 +23,15 @@
 
     button {
       padding: 0.8rem;
+      border-radius: 8px;
+      background-color: transparent;
+      color: black;
+      border: 1px solid black;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e6e6e6e6;
+      }
     }
   }
 }

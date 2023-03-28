@@ -33,8 +33,13 @@ export function Profile() {
       <div className={styles.contentContainer}>
         <p>{`Hello, my name is ${userData?.name}`}</p>
 
-        <h1>History</h1>
-        <p>Lorem ipsum, dolor </p>
+        <h1>My History</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nihil
+          consectetur deleniti deserunt eius quo dolor illum, facilis soluta,
+          sed fuga officia repellendus laborum dicta eos nulla voluptatum ullam
+          error.
+        </p>
 
         <div className={styles.buttonContainer}>
           <a href={userData?.githubLink}>
