@@ -5,6 +5,7 @@ import {
   beforeAll,
   afterAll,
   beforeEach,
+  afterEach,
 } from "vitest";
 
 import request from "supertest";
@@ -28,14 +29,9 @@ describe("Tests cases for feature create user", () => {
     execSync("npx prisma migrate reset --force");
   });
 
-  test("[POST] [/user/create] it should be able create a new user", async () => {
-    const newUserBody = {
-      name: "John Doe",
-      linkedinUrl: "https://www.linkedin.com/in/john-doe",
-      githubUrl: "https://github.com/john-doe",
-    };
-
-    await request(server).post("/user/create").send(newUserBody).expect(204);
+  afterEach(() => {
+    // reinicia base de dados antes de cada test
+    execSync("npx prisma migrate reset --force");
   });
 
   test("[POST] [/user/create] it should be throw error if forget a key 'name'", async () => {
@@ -109,5 +105,15 @@ describe("Tests cases for feature create user", () => {
     const expectedErrorMessage = { error: "User Already Exists" };
 
     expect(error).toEqual(expectedErrorMessage);
+  });
+
+  test("[POST] [/user/create] it should be able create a new user", async () => {
+    const newUserBody = {
+      name: "John Doe",
+      linkedinUrl: "https://www.linkedin.com/in/john-doe",
+      githubUrl: "https://github.com/john-doe",
+    };
+
+    await request(server).post("/user/create").send(newUserBody).expect(204);
   });
 });

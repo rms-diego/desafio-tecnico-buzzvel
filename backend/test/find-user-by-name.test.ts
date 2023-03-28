@@ -5,6 +5,7 @@ import {
   beforeAll,
   afterAll,
   beforeEach,
+  afterEach,
 } from "vitest";
 
 import request from "supertest";
@@ -34,6 +35,11 @@ describe("Tests cases for feature find user by name", () => {
     };
 
     await request(server).post("/user/create").send(newUserBody).expect(204);
+  });
+
+  afterEach(() => {
+    // reinicia base de dados antes de cada test
+    execSync("npx prisma migrate reset --force");
   });
 
   test("[POST] [/user/findByName/:name] it should be able get a user", async () => {
