@@ -85,7 +85,7 @@ Caso esteja usando o docker compose standalone
 
 </br>
 
-### Rota <strong>/user/create</strong>
+### Rota <strong>[POST] /user/create</strong>
 
 É esperado um body no seguinte formato
 
@@ -118,7 +118,7 @@ Caso esteja faltando alguma informação no body a resposta da requisição sera
 
 </br>
 
-### Rota <strong>/user/findByName/:name</strong>
+### Rota <strong>[GET] /user/findByName/:name</strong>
 
 É esperado que o nome do usuário seja passado como parâmetro
 
